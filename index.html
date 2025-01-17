@@ -26,9 +26,21 @@
             // alert("Right-click is disabled on this webpage."); // Optional: alert the user
         }
 
-        // Add event listener when the DOM is fully loaded
+        // Function to disable certain keyboard shortcuts
+        function disableShortcuts(event) {
+            // Check for F12 (DevTools), Ctrl+U (View Source), Ctrl+Shift+I (DevTools)
+            if (event.key === "F12" || 
+                (event.ctrlKey && event.key === "u") || 
+                (event.ctrlKey && event.shiftKey && event.key === "i")) {
+                event.preventDefault(); // Prevent the default action
+                // alert("This action is disabled."); // Optional: alert the user
+            }
+        }
+
+        // Add event listeners when the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', (event) => {
             document.addEventListener('contextmenu', disableRightClick);
+            document.addEventListener('keydown', disableShortcuts);
         });
     </script>
 </head>
