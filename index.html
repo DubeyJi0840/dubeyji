@@ -19,6 +19,18 @@
     <link rel="stylesheet" href="assets/css/plugins/feature.css">
     <!-- Style css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        // Function to disable right-click
+        function disableRightClick(event) {
+            event.preventDefault(); // Prevent the default context menu from appearing
+            // alert("Right-click is disabled on this webpage."); // Optional: alert the user
+        }
+
+        // Add event listener when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.addEventListener('contextmenu', disableRightClick);
+        });
+    </script>
 </head>
 
 <body class="template-color-1 spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="70">
